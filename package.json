@@ -1,6 +1,6 @@
 {
   "name": "dob-react-devtools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "built/index.js",
   "scripts": {
@@ -56,15 +56,15 @@
     "react-router-dom": "^4.2.2",
     "run-react": "^2.1.2",
     "sortablejs": "^1.6.1",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "dependencies": {
     "dependency-inject": "^1.1.0",
     "dob": "^2.4.13",
     "dob-react": "^2.3.1",
     "lodash.debounce": "^4.0.8",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
     "styled-components": "^2.2.1"
   }
 }
