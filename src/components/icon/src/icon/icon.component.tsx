@@ -43,10 +43,6 @@ export class Icon extends React.Component<typings.Props, typings.State> {
   public state = new typings.State()
 
   public render() {
-    return (
-      <Styled.Container>
-        {iconMap.get(this.props.type)(this.props.size)}
-      </Styled.Container>
-    )
+    return iconMap.get(this.props.type)(this.props.size)
   }
 }

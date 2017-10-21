@@ -3,17 +3,14 @@ import styled, { keyframes } from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  ${props => props.theme && props.theme.deep > 0 && `
-    margin-left: 12px;
-    padding-left: 5px;
-    border-left: 1px solid #5d5d5d;
+  ${props => props.theme && props.theme.deep == 0 && `
+    &:not(:first-child) {
+      border-top: 1px solid black;
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid #4a4a4a;
+    }
   `}
-  &:not(:first-child) {
-    border-top: 1px solid black;
-  }
-  &:not(:last-child) {
-    border-bottom: 1px solid #4a4a4a;
-  }
 `
 
 export const Title = styled.div`
@@ -43,19 +40,17 @@ export const ChangeContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #292929;
-  border-radius: 5px;
-  padding: 2px;
-  margin: 2px 10px;
+  padding: 2px 6px;
   border-top: 1px solid #111;  
   border-bottom: 1px solid #404040; 
   overflow-x: auto;
   &::-webkit-scrollbar-thumb {
-    background-color: #333;
+    background-color: #444;
   }
   &::-webkit-scrollbar {
-    width: 5px;
-    height: 8px;
-    background-color: #666;
+    width: 2px;
+    height: 2px;
+    background-color: #111;
   }
 `
 
@@ -67,6 +62,14 @@ export const ChangeBox = styled.div`
 
 export const ChangeDetailContainer = styled.div`
   display: flex;
+`
+
+export const ChangeDetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${props => props.theme.deep && `
+    border-left: 1px solid #222;
+  `}
 `
 
 export const CallStack = styled.div`

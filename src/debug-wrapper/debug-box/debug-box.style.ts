@@ -57,7 +57,6 @@ export const DetailContainer = styled.div`
   color: transparent;
   width: 300px;
   background-color: #333;
-  padding: 5px;
   box-shadow: 0 0 10px #3e3e3e;
 `
 
@@ -65,7 +64,7 @@ export const CallContainer = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid #4a4a4a;
-  padding: 5px;
+  padding: 5px 10px;
   text-shadow: 1px 1px #aaa, 0px 0px #111;
 `
 

@@ -61,7 +61,12 @@ export class Action extends React.PureComponent<Props, State>{
         </S.Title>
 
         {this.state.showDetail &&
-          this.renderDetails(this.props.debugInfo, this.props.deep, this.props.renderKey)
+          <S.ChangeDetailsContainer
+            theme={{ deep: this.props.deep }}
+            style={{ marginLeft: this.props.deep === 0 ? 0 : 10 }}
+          >
+            {this.renderDetails(this.props.debugInfo, this.props.deep, this.props.renderKey)}
+          </S.ChangeDetailsContainer>
         }
       </S.Container>
     )

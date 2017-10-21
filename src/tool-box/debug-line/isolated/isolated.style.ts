@@ -3,31 +3,30 @@ import styled, { keyframes } from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  ${props => props.theme && props.theme.deep === 0 && `
-    // padding-bottom: 5px;
-  `}
-  ${props => props.theme && props.theme.deep > 0 && `
-    margin-left: 12px;
-    padding-left: 5px;
-    border-left: 1px solid #5d5d5d;
-  `}
+  &:not(:first-child) {
+    border-top: 1px solid black;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid #4a4a4a;
+  }
 `
 
 export const Title = styled.div`
-  padding: 10px;
+  padding: 0 10px;
   text-shadow: 1px 1px #aaa, 0px 0px #111;
   color: transparent;
+  fill: #ccc;
   cursor: pointer;
   transition: text-shadow,background-color .1s;
   &:hover {
-    text-shadow: 1px 1px #eee, 0px 0px black;
+    fill: #eee;
     background-color: #3a3a3a;
   }
   .highlight {
     text-shadow: 1px 1px #d85656, 0px 0px #111;
   }
   ${props => props.theme.highlight && `
-    text-shadow: 1px 1px #eee, 0px 0px black;
+    fill: #eee;
     background-color: #3a3a3a;
   `}
 `

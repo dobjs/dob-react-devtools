@@ -52,7 +52,21 @@ export class ArticleAction {
     this.ArticleStore.a.b.c.d = 7
     Action(() => {
       this.ArticleStore.a.b.c.d = 8
+      this.test2()
     })
     this.ArticleStore.a.b.c.d = 9
+  }
+
+  @Action test2() {
+    this.test3()
+  }
+
+  @Action test3() {
+    this.test4()
+  }
+
+  @Action test4() {
+    this.ArticleStore.a.b.c.d = 10
+    this.ArticleStore.a.b.c.d = 11
   }
 }

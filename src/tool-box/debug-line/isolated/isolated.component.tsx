@@ -56,7 +56,7 @@ export class Isolated extends React.PureComponent<Props, State>{
             }
           }}
         >
-          <Icon type="scatter" />
+          <Icon size={12} type="scatter" />
         </S.Title>
 
         {this.state.showDetail &&
