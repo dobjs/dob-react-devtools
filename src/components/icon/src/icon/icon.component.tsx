@@ -15,10 +15,15 @@ import folder from "../icons/folder"
 import keybroad from "../icons/keybroad"
 import page from "../icons/page"
 import remove from "../icons/remove"
-import rightArrow from "../icons/right-arrow"
+import arrowRight from "../icons/arrow-right"
+import arrowTop from "../icons/arrow-top"
+import arrowLeft from "../icons/arrow-left"
+import arrowBottom from "../icons/arrow-bottom"
 import setting from "../icons/setting"
 import trash from "../icons/trash"
 import scatter from '../icons/scatter'
+import LightBulbOff from '../icons/light-bulb-off'
+import LightBulbOn from '../icons/light-bulb-on'
 
 const iconMap = new Map<string, (size: number) => React.ReactElement<any>>()
 iconMap.set("close", close)
@@ -34,9 +39,14 @@ iconMap.set("trash", trash)
 iconMap.set("add", add)
 iconMap.set("keybroad", keybroad)
 iconMap.set("database", database)
-iconMap.set("rightArrow", rightArrow)
+iconMap.set("arrow-right", arrowRight)
+iconMap.set("arrow-top", arrowTop)
+iconMap.set("arrow-left", arrowLeft)
+iconMap.set("arrow-bottom", arrowBottom)
 iconMap.set("edit", edit)
 iconMap.set("scatter", scatter)
+iconMap.set("light-bulb-off", LightBulbOff)
+iconMap.set("light-bulb-on", LightBulbOn)
 
 export class Icon extends React.Component<typings.Props, typings.State> {
   public static defaultProps = new typings.Props()

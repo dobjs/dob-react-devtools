@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
 import { dobEvent, IDebugInfo } from 'dob'
+import { startDebug, stopDebug } from 'dob-react'
 import * as PropTypes from 'prop-types'
 
 import { Props, State } from './tool-box.type'
@@ -11,6 +12,8 @@ import { DebugLine } from './debug-line/debug-line.component'
 
 import { scrollTo } from '../utils/scroll-to'
 import * as debounce from 'lodash.debounce'
+
+import Icon from '../components/icon/src'
 
 export class ToolBox extends React.PureComponent<Props, State>{
   static defaultProps = new Props()
@@ -59,7 +62,44 @@ export class ToolBox extends React.PureComponent<Props, State>{
         </S.ChildrenContainer>
 
         {this.renderToolBox()}
+        {this.renderControlButton()}
       </S.Container>
+    )
+  }
+
+  /**
+   * 渲染测试控制按钮
+   */
+  private renderControlButton = () => {
+    return (
+      <S.ControlContainer theme={{ showToolBox: this.state.showToolBox }}>
+        <S.DisplayButton onClick={() => {
+          this.setState({
+            showToolBox: !this.state.showToolBox
+          })
+        }}>
+          {this.state.showToolBox ?
+            <Icon type="arrow-right" /> :
+            <Icon type="arrow-left" />
+          }
+        </S.DisplayButton>
+        <S.UseDebug onClick={() => {
+          if (this.state.useDebug) {
+            stopDebug()
+          } else {
+            startDebug()
+          }
+
+          this.setState({
+            useDebug: !this.state.useDebug
+          })
+        }}>
+          {this.state.useDebug ?
+            <Icon type="light-bulb-on" /> :
+            <Icon type="light-bulb-off" />
+          }
+        </S.UseDebug>
+      </S.ControlContainer>
     )
   }
 
@@ -95,6 +135,10 @@ export class ToolBox extends React.PureComponent<Props, State>{
   }, 60)
 
   private renderToolBox = () => {
+    if (!this.state.showToolBox) {
+      return null
+    }
+
     const debugInfos = this.getDebugInfoArray()
 
     const Debugs = debugInfos.map((debugInfo, index) => {

@@ -91,3 +91,48 @@ export const ActionContainer = styled.div`
   }
   transition: background-color .1s;
 `
+
+export const ControlContainer = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  right: 351px;
+  z-index: 99;
+  box-shadow: 0 0 10px #3e3e3e;
+  ${props => !props.theme.showToolBox && `
+    right: 0;
+  `}
+`
+
+export const DisplayButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 33px;
+  background-color: #333;
+  fill: #ccc;
+  cursor: pointer;
+  transition: background-color, fill .1s;
+  &:hover {
+    fill: #ddd;
+    background-color: #444;
+  }
+`
+
+export const UseDebug = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 33px;
+  background-color: #333;
+  fill: #ccc;
+  cursor: pointer;
+  transition: background-color, fill .1s;
+  &:hover {
+    fill: #ddd;
+    background-color: #444;
+  }
+`

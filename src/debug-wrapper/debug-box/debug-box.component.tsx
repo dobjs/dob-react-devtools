@@ -263,6 +263,15 @@ export class DebugBox extends React.PureComponent<Props, State>{
       return
     }
 
+    // 更新位置
+    const realChildRect = this.realChildDOM.getBoundingClientRect()
+    this.setState({
+      left: realChildRect.left,
+      top: realChildRect.top,
+      width: realChildRect.width,
+      height: realChildRect.height
+    })
+
     this.highLightBoxDOM.classList.remove('dob-debug-animation')
 
     clearTimeout(this.restartAnimationTimeout)
