@@ -12,13 +12,13 @@ export default class Article extends PureComponent<Props, State> {
     return (
       <li>
         <p>
-          文章名：{this.props.article.title}
+          title: {this.props.article.title}
         </p>
         <p>
-          作者：{this.props.article.author}
+          author: {this.props.article.author}
         </p>
         <input
-          placeholder="输入修改当前文章名.."
+          placeholder="change current article's title.."
           onChange={event => {
             this.props.ArticleAction.changeArticleTitle(this.props.index, event.currentTarget.value)
           }}

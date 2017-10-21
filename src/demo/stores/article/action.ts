@@ -14,7 +14,7 @@ export class ArticleAction {
   @Action addArticle() {
     return this.ArticleStore.articles.push({
       id: Math.random(),
-      title: '测试',
+      title: 'test dob-react-devtools',
       author: 'ascoders'
     })
   }
@@ -28,7 +28,7 @@ export class ArticleAction {
     this.ArticleStore.articles.splice(index, 1)
   }
 
-  @Action multipleAction(title: string) {
+  @Action addArticleAndChangeTitle(title: string) {
     const index = this.addArticle()
     this.changeArticleTitle(index - 1, title)
   }
@@ -42,14 +42,17 @@ export class ArticleAction {
       }
     }
     waitOneMinute().then(() => {
-      Action(() => {
-        this.ArticleStore.a.b.c.d = 7
-        this.ArticleStore.a.b.c.d = 8
-        this.ArticleStore.a.b.c.d = 9
-      })
       this.ArticleStore.a.b.c.d = 7
       this.ArticleStore.a.b.c.d = 8
       this.ArticleStore.a.b.c.d = 9
     })
+  }
+
+  @Action runAnonymousTest() {
+    this.ArticleStore.a.b.c.d = 7
+    Action(() => {
+      this.ArticleStore.a.b.c.d = 8
+    })
+    this.ArticleStore.a.b.c.d = 9
   }
 }

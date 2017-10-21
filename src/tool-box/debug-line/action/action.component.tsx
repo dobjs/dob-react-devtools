@@ -70,7 +70,7 @@ export class Action extends React.PureComponent<Props, State>{
   private renderTitle() {
     if (this.props.debugInfo.name === null) {
       return (
-        <S.UnknowTitle>Unknow</S.UnknowTitle>
+        <S.AnonymousTitle>Anonymous</S.AnonymousTitle>
       )
     }
 

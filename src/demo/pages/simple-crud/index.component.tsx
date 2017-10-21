@@ -19,15 +19,19 @@ export default class Page1 extends PureComponent<Props, State> {
       <div>
         <button onClick={() => {
           this.props.ArticleAction.addArticle()
-        }}>添加文章</button>
+        }}>add article</button>
 
         <button onClick={() => {
-          this.props.ArticleAction.multipleAction('123')
-        }}>添加文章并修改文章名为123</button>
+          this.props.ArticleAction.addArticleAndChangeTitle('custom name')
+        }}>add article and change name</button>
 
         <button onClick={() => {
           this.props.ArticleAction.runAsyncTest()
-        }}>测试异步方法，值为 {this.props.ArticleStore.a.b.c.d}</button>
+        }}>test async action {this.props.ArticleStore.a.b.c.d}</button>
+
+        <button onClick={() => {
+          this.props.ArticleAction.runAnonymousTest()
+        }}>test anonymous action</button>
 
         <ul>
           {Articles}

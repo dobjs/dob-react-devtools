@@ -35,7 +35,7 @@ export const Title = styled.div`
   `}
 `
 
-export const UnknowTitle = styled.div`
+export const AnonymousTitle = styled.div`
   text-shadow: 1px 1px #666, 0px 0px #111;
 `
 
@@ -49,6 +49,14 @@ export const ChangeContainer = styled.div`
   border-top: 1px solid #111;  
   border-bottom: 1px solid #404040; 
   overflow-x: auto;
+  &::-webkit-scrollbar-thumb {
+    background-color: #333;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #666;
+  }
 `
 
 export const ChangeBox = styled.div`
