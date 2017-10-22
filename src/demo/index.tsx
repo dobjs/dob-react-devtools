@@ -1,7 +1,6 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
-import { inject, injectFactory } from 'dependency-inject'
-import { Action, observable } from 'dob'
+import { Action, observable, inject } from 'dob'
 import { Connect, Provider, startDebug } from 'dob-react'
 import '../'
 

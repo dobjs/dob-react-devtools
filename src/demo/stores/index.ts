@@ -1,9 +1,9 @@
-import { injectFactory, inject } from 'dependency-inject';
+import { combineStores, inject } from 'dob';
 
 import { ArticleAction } from './article/action'
 import { ArticleStore } from './article/store'
 
-export const stores = injectFactory({
+export const stores = combineStores({
   ArticleAction,
   ArticleStore
 })

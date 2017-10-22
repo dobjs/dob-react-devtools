@@ -1,6 +1,6 @@
 {
   "name": "dob-react-devtools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "built/index.js",
   "scripts": {
@@ -61,8 +61,7 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "dependency-inject": "^1.1.0",
-    "dob": "^2.4.13",
+    "dob": "^2.4.14",
     "dob-react": "^2.3.1",
     "lodash.debounce": "^4.0.8",
     "styled-components": "^2.2.1"

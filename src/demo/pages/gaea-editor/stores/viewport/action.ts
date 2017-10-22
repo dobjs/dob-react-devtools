@@ -1,4 +1,4 @@
-import { inject } from "dependency-inject"
+import { inject } from "dob"
 import { Action } from "dob"
 import * as _ from "lodash"
 import * as Sortable from "sortablejs"
@@ -327,7 +327,7 @@ export default class ViewportAction {
                 this.setRootInstanceKey(instanceKey)
             }
 
-            this.store.instances.set(instanceKey, {...instanceInfo})
+            this.store.instances.set(instanceKey, { ...instanceInfo })
         })
     }
 
@@ -564,7 +564,7 @@ export default class ViewportAction {
                                 // 如果用户传了 props，将其设置在 dataset 中
                                 if (typeof propsData.props === "object") {
                                     if (event.item.dataset.props) {
-                                        propsData.props = {...(propsData.props || {}), ...JSON.parse(event.item.dataset.props)}
+                                        propsData.props = { ...(propsData.props || {}), ...JSON.parse(event.item.dataset.props) }
                                     }
                                     event.item.dataset.props = JSON.stringify(propsData.props)
                                 }

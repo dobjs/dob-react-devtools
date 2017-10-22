@@ -1,5 +1,4 @@
-import { Action, observable } from 'dob'
-import { injectFactory, inject } from 'dependency-inject';
+import { Action, observable, inject } from 'dob'
 import { ArticleStore } from './store'
 
 function waitOneMinute() {
