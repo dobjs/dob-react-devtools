@@ -6,7 +6,6 @@ import { IDebugInfo } from 'dob'
 import * as S from './debug-wrapper.style'
 import { globalState } from 'dob-react'
 import { Props, State } from './debug-wrapper.type'
-import { RenderTo } from '../components/render-to/src'
 
 import { DebugBox } from './debug-box/debug-box.component'
 
@@ -34,6 +33,11 @@ export class DebugWrapper extends React.PureComponent<Props, State>{
    */
   private debugBox: DebugBox = null
 
+  /**
+   * 放对应 debug-box 的节点
+   */
+  private debugContainer: HTMLElement = null
+
   public componentWillMount() {
     this.isMount = true
   }
@@ -46,9 +50,25 @@ export class DebugWrapper extends React.PureComponent<Props, State>{
       this.realChildDOM.removeEventListener('mouseenter', this.handleMouseEnter)
       this.realChildDOM.removeEventListener('mouseleave', this.handleMouseLeave)
     }
+
+    ReactDOM.unmountComponentAtNode(this.debugContainer)
+    document.querySelector('body').removeChild(this.debugContainer)
   }
 
   public componentDidMount() {
+    // 渲染与当前组件一一对应的高亮节点
+    this.debugContainer = document.createElement("div")
+    document.querySelector('body').appendChild(this.debugContainer)
+    ReactDOM.render(
+      <DebugBox
+        ref={ref => {
+          this.debugBox = ref
+        }}
+        dyDebug={this.context.dyDebug}
+      />,
+      this.debugContainer
+    )
+
     // TODO: 暂不处理多子元素的情况
     if (React.Children.count(this.props.children) > 1) {
       return null
@@ -76,21 +96,11 @@ export class DebugWrapper extends React.PureComponent<Props, State>{
   }
 
   public render() {
-    return [
-      React.cloneElement(this.props.children as React.ReactElement<any>, {
-        [globalState.handleReRender]: this.onReRender,
-        ref: 'realChilds',
-        key: 0
-      }),
-      <RenderTo key={1}>
-        <DebugBox
-          ref={ref => {
-            this.debugBox = ref
-          }}
-          dyDebug={this.context.dyDebug}
-        />
-      </RenderTo>
-    ]
+    return React.cloneElement(this.props.children as React.ReactElement<any>, {
+      [globalState.handleReRender]: this.onReRender,
+      ref: 'realChilds',
+      key: 0
+    })
   }
 
   /**

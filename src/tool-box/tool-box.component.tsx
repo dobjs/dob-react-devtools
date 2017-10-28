@@ -113,6 +113,10 @@ export class ToolBox extends React.PureComponent<Props, State>{
    * 高亮列表中某个 debugId，对列表来说，移动到这个元素上
    */
   private handleFocusActionDetail = (debugId: number) => {
+    if (!this.actionContainerDOM) {
+      return
+    }
+
     // 找到是列表中第几个元素
     const debugInfos = this.getDebugInfoArray()
 

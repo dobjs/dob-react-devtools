@@ -76,6 +76,14 @@ export const ActionScroll = styled.div`
   max-height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
+  &::-webkit-scrollbar-thumb {
+    background-color: #444;
+  }
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    background-color: #111;
+  }
 `
 
 export const ActionList = styled.div`

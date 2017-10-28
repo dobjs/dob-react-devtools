@@ -41,9 +41,11 @@ export class ArticleAction {
       }
     }
     waitOneMinute().then(() => {
+      // Action(() => {
       this.ArticleStore.a.b.c.d = 7
       this.ArticleStore.a.b.c.d = 8
       this.ArticleStore.a.b.c.d = 9
+      // })
     })
   }
 

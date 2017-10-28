@@ -77,6 +77,14 @@ export const ToolScrollContainer = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   border-top: 1px solid black;
+  &::-webkit-scrollbar-thumb {
+    background-color: #444;
+  }
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    background-color: #111;
+  }
 `
 
 export const ActionContainer = styled.div`
