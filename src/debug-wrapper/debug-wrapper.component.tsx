@@ -61,19 +61,21 @@ export class DebugWrapper extends React.PureComponent<Props, State>{
   }
 
   public componentDidMount() {
-    // 渲染与当前组件一一对应的高亮节点
-    this.debugContainer = document.createElement("div")
-    this.debugContainer.style.position = 'absolute'
-    document.querySelector('#' + debugContainerId).appendChild(this.debugContainer)
-    ReactDOM.render(
-      <DebugBox
-        ref={ref => {
-          this.debugBox = ref
-        }}
-        dyDebug={this.context.dyDebug}
-      />,
-      this.debugContainer
-    )
+    // 渲染与当前组件一一对应的高亮节点，由于此时可能 debugContainer 不存在，因此 setTimeout 后执行
+    setTimeout(() => {
+      this.debugContainer = document.createElement("div")
+      this.debugContainer.style.position = 'absolute'
+      document.querySelector('#' + debugContainerId).appendChild(this.debugContainer)
+      ReactDOM.render(
+        <DebugBox
+          ref={ref => {
+            this.debugBox = ref
+          }}
+          dyDebug={this.context.dyDebug}
+        />,
+        this.debugContainer
+      )
+    })
 
     // TODO: 暂不处理多子元素的情况
     if (React.Children.count(this.props.children) > 1) {
@@ -114,6 +116,14 @@ export class DebugWrapper extends React.PureComponent<Props, State>{
    */
   public onReRender = ({ debugId }) => {
     if (!this.isMount) {
+      return
+    }
+
+    // 如果 debugBox 还未实例化，下个事件循环再执行
+    if (!this.debugBox) {
+      setTimeout(() => {
+        this.onReRender({ debugId })
+      })
       return
     }
 

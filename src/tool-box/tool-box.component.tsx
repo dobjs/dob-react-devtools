@@ -33,19 +33,6 @@ export class ToolBox extends React.PureComponent<Props, State>{
    */
   private actionContainerDOM: HTMLElement = null
 
-  componentWillMount() {
-    // 在 body 下创建一个放置 debug-box 的节点
-    const debugContainer = document.createElement("div")
-    debugContainer.id = debugContainerId
-    debugContainer.style.position = 'absolute'
-    debugContainer.style.top = '0px'
-    debugContainer.style.right = '0px'
-    debugContainer.style.bottom = '0px'
-    debugContainer.style.left = '0px'
-    debugContainer.style.pointerEvents = 'none'
-    document.querySelector('body').appendChild(debugContainer)
-  }
-
   getChildContext() {
     return {
       dyDebug: this.context.dyDebug
@@ -61,6 +48,18 @@ export class ToolBox extends React.PureComponent<Props, State>{
     })
 
     this.context.dyDebug.event.on('focusActionDetail', this.handleFocusActionDetail)
+
+    // 在 body 下创建一个放置 debug-box 的节点
+    const debugContainer = document.createElement("div")
+    debugContainer.id = debugContainerId
+    debugContainer.style.position = 'fixed'
+    debugContainer.style.top = '0px'
+    debugContainer.style.right = '0px'
+    debugContainer.style.bottom = '0px'
+    debugContainer.style.left = '0px'
+    debugContainer.style.pointerEvents = 'none'
+    debugContainer.style.overflow = 'hidden'
+    ReactDOM.findDOMNode(this).appendChild(debugContainer)
   }
 
   public componentWillUnmount() {
