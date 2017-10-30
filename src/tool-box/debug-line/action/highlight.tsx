@@ -3,7 +3,9 @@ import * as React from 'react'
 export default class Highlight extends React.PureComponent<any, any>{
   render() {
     if (!this.props.search || this.props.search === '') {
-      return this.props.label;
+      return (
+        <div>{this.props.label}</div>
+      );
     }
     return (
       <span>

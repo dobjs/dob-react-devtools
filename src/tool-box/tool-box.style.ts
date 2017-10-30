@@ -2,20 +2,21 @@ import styled, { keyframes } from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  position: relative;
-  font-family: Helvetica,'microsoft yahei',Arial,sans-serif;
-  height: 100%;
-  width: 100%;
 `
 
 export const ChildrenContainer = styled.div`
-  height: 100vh;
   overflow-y: auto;
   flex-grow: 1;
   flex-basis: 0;
+  ${props => props.theme.showToolBox && `
+    margin-right: 350px; 
+  `}
 `
 
 export const ToolContainer = styled.div`
+  font-family: Helvetica,'microsoft yahei',Arial,sans-serif;
+  position: fixed;
+  right: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -24,6 +25,7 @@ export const ToolContainer = styled.div`
   color: whitesmoke;
   border-left: 1px solid black;
   box-shadow: 0 0 10px #3e3e3e;
+  z-index: 10;
 `
 
 export const ScrollContainer = styled.div`
@@ -101,7 +103,7 @@ export const ActionContainer = styled.div`
 `
 
 export const ControlContainer = styled.div`
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   bottom: 0;

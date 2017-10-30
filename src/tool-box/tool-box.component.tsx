@@ -71,7 +71,7 @@ export class ToolBox extends React.PureComponent<Props, State>{
     return (
       <S.Container>
         {/* provider root */}
-        <S.ChildrenContainer>
+        <S.ChildrenContainer theme={{ showToolBox: this.state.showToolBox }}>
           {this.props.children}
         </S.ChildrenContainer>
 

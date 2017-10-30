@@ -42,7 +42,6 @@ export class Tooltip extends React.Component<typings.Props, typings.State> {
 
     // 在 body 移除 tooltip
     document.body.removeChild(this.tooltipDom)
-
     if (this.props.showShadow) {
       document.body.removeChild(this.tooltipShadowDom)
     }
