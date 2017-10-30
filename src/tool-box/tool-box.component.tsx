@@ -7,6 +7,7 @@ import * as PropTypes from 'prop-types'
 
 import { Props, State } from './tool-box.type'
 import * as S from './tool-box.style'
+import { debugContainerId } from '../utils/isomorphic'
 
 import { DebugLine } from './debug-line/debug-line.component'
 
@@ -31,6 +32,19 @@ export class ToolBox extends React.PureComponent<Props, State>{
    * debugInfos 容器
    */
   private actionContainerDOM: HTMLElement = null
+
+  componentWillMount() {
+    // 在 body 下创建一个放置 debug-box 的节点
+    const debugContainer = document.createElement("div")
+    debugContainer.id = debugContainerId
+    debugContainer.style.position = 'absolute'
+    debugContainer.style.top = '0px'
+    debugContainer.style.right = '0px'
+    debugContainer.style.bottom = '0px'
+    debugContainer.style.left = '0px'
+    debugContainer.style.pointerEvents = 'none'
+    document.querySelector('body').appendChild(debugContainer)
+  }
 
   getChildContext() {
     return {

@@ -6,6 +6,7 @@ import { IDebugInfo } from 'dob'
 import * as S from './debug-wrapper.style'
 import { globalState } from 'dob-react'
 import { Props, State } from './debug-wrapper.type'
+import { debugContainerId } from '../utils/isomorphic'
 
 import { DebugBox } from './debug-box/debug-box.component'
 
@@ -58,7 +59,8 @@ export class DebugWrapper extends React.PureComponent<Props, State>{
   public componentDidMount() {
     // 渲染与当前组件一一对应的高亮节点
     this.debugContainer = document.createElement("div")
-    document.querySelector('body').appendChild(this.debugContainer)
+    this.debugContainer.style.position = 'absolute'
+    document.querySelector('#' + debugContainerId).appendChild(this.debugContainer)
     ReactDOM.render(
       <DebugBox
         ref={ref => {

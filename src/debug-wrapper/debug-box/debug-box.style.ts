@@ -23,7 +23,7 @@ const borderAnimation = keyframes`
 `;
 
 export const Container = styled.div`
-  
+  pointer-events: all;
 `
 
 export const HighLightBox = styled.div`
