@@ -52,8 +52,12 @@ export class DebugWrapper extends React.PureComponent<Props, State>{
       this.realChildDOM.removeEventListener('mouseleave', this.handleMouseLeave)
     }
 
-    ReactDOM.unmountComponentAtNode(this.debugContainer)
-    document.querySelector('body').removeChild(this.debugContainer)
+    try {
+      ReactDOM.unmountComponentAtNode(this.debugContainer)
+      document.querySelector('body').removeChild(this.debugContainer)
+    } catch (error) {
+
+    }
   }
 
   public componentDidMount() {
