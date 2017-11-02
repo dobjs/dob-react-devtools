@@ -64,6 +64,7 @@
     "dob": "^2.5.0",
     "dob-react": "^2.4.0",
     "lodash.debounce": "^4.0.8",
+    "nyc": "^11.3.0",
     "styled-components": "^2.2.1"
   }
 }
