@@ -1,4 +1,4 @@
-# dob-react-devtools [![npm version](https://img.shields.io/npm/v/dob-react-devtools.svg?style=flat)](https://www.npmjs.com/package/dob-react-devtools)
+# dob-react-devtools [![CircleCI Status](https://img.shields.io/travis/dobjs/dob-react-devtools/master.svg?style=flat)](https://travis-ci.org/dobjs/dob-react-devtools) [![npm version](https://img.shields.io/npm/v/dob-react-devtools.svg?style=flat)](https://www.npmjs.com/package/dob-react-devtools) [![code coverage](https://img.shields.io/codecov/c/github/dobjs/dob-react-devtools/master.svg)](https://codecov.io/github/dobjs/dob-react-devtools)
 
 Devtools for dob-react, with action and ui two way binding.
 
@@ -18,7 +18,7 @@ startDebug()
 Dob-react-devtools is available as the dob package on [npm](https://www.npmjs.com/package/dob-react-devtools).
 
 ```
-tnpm i dob-react-devtools
+npm i dob-react-devtools
 ```
 
 ## Features
