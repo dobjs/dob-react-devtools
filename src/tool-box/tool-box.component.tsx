@@ -176,8 +176,8 @@ export class ToolBox extends React.PureComponent<Props, State>{
             this.setState({
               searchValue: event.currentTarget.value
             })
-          }} placeholder="搜索 action.." />
-          <S.HelperButton onClick={this.handleClear}>清空</S.HelperButton>
+          }} placeholder="search actions.." />
+          <S.HelperButton onClick={this.handleClear}>Clear</S.HelperButton>
         </S.HelperContainer>
 
         <S.ToolScrollContainer

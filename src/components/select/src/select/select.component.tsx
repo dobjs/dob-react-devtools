@@ -269,7 +269,7 @@ export class Select extends React.Component<typings.Props, typings.State> {
     if (this.props.search) {
       Search = (
         <div className="chosen-search">
-          <Input placeholder="搜索.."
+          <Input placeholder="search.."
             ref={ref => (ReactDOM.findDOMNode(ref) as HTMLInputElement).focus()}
             onChange={this.handleSearchChange.bind(this)} />
         </div>
